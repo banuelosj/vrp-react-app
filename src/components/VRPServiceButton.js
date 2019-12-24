@@ -1,12 +1,12 @@
 import React from 'react';
 
-const VRPServiceButton = (props) => {
+const VRPServiceButton = () => {
     return (
         <div className="ui inverted segment">
             <div class="ui buttons">
-                <button class="ui button">sampleserver6</button>
+                <button class="ui positive button">sampleserver6</button>
                 <div class="or"></div>
-                <button class="ui positive button">logistics.arcgis.com</button>
+                <button class="ui button">logistics.arcgis.com</button>
             </div>
         </div>
     );
