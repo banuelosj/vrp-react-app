@@ -4,6 +4,11 @@ This project allows users to test Esri's [Vehicle Routing Problem service](https
 Since the service directory for this service is disabled online, it allows users to easily modify, add, and remove parameters with an interface.
 
 ## Getting Started
+On the intitial download or clone of this repository run
+
+### `npm install`
+
+Installs all the package dependencies.
 
 In the project directory, you can run:
 

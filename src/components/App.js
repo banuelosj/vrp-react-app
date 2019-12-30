@@ -4,11 +4,11 @@ import RadioButtons from './RadioButtons';
 import FormComponent from './FormComponent';
 
 class App extends React.Component {
-    state = {service: 'sample'};
+    state = {service: "sample"};
 
     onRadioChange = (e) => {
         this.setState({
-            service: e.target.value
+            service: e.target.name
         }, ()=>{
             console.log(this.state.service);
         });

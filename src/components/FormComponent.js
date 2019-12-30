@@ -7,7 +7,7 @@ import './FormStyle.css';
 
 const FormComponent = () => {
     return (
-        <div className="my-form">
+        <div className="my-form" style={{paddingLeft: '30px'}}>
         <Formik
             initialValues = {{
                 orders: '',
