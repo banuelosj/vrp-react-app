@@ -2,13 +2,13 @@ import React from 'react';
 import Menu from './Menu';
 import RadioButtons from './RadioButtons';
 import FormComponent from './FormComponent';
-import TravelMode from './TravelMode';
+import InputList from './InputList';
 
 class App extends React.Component {
     state = {
         service: "sample", 
-        formArr: [{name:"orders", type="textarea"}, {name:"depots", type="textarea"}, {name:"routes", type="textarea"}], 
-        selectedInput: ''};
+        selectedInput: ''
+    };
 
     onRadioChange = (e) => {
         this.setState({
@@ -18,7 +18,8 @@ class App extends React.Component {
         });
     }
 
-    onClick = (e) => {
+    //adding a new input to the form
+    onInputSelect = (e) => {
         this.setState({selectedInput: e.target.id}, () => {
             console.log(this.state.selectedInput);
         });
@@ -50,11 +51,9 @@ class App extends React.Component {
                     </div>
                     <div className="column">
                         <div className="ui right close rail">
-                            <TravelMode onClick={this.onClick} />
+                            <InputList onClick={this.onInputSelect} />
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
         );
