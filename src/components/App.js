@@ -2,15 +2,25 @@ import React from 'react';
 import Menu from './Menu';
 import RadioButtons from './RadioButtons';
 import FormComponent from './FormComponent';
+import TravelMode from './TravelMode';
 
 class App extends React.Component {
-    state = {service: "sample"};
+    state = {
+        service: "sample", 
+        formArr: [{name:"orders", type="textarea"}, {name:"depots", type="textarea"}, {name:"routes", type="textarea"}], 
+        selectedInput: ''};
 
     onRadioChange = (e) => {
         this.setState({
             service: e.target.name
         }, ()=>{
             console.log(this.state.service);
+        });
+    }
+
+    onClick = (e) => {
+        this.setState({selectedInput: e.target.id}, () => {
+            console.log(this.state.selectedInput);
         });
     }
     
@@ -33,8 +43,18 @@ class App extends React.Component {
                         onChange={this.onRadioChange} 
                     />
                 </div>
-                <div className="ui vertical stripe segment">
-                    <FormComponent />
+                <br />
+                <div className="ui three column grid">
+                    <div className="column">
+                        <FormComponent />
+                    </div>
+                    <div className="column">
+                        <div className="ui right close rail">
+                            <TravelMode onClick={this.onClick} />
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         );
