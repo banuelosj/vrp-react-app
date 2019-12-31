@@ -7,7 +7,8 @@ import InputList from './InputList';
 class App extends React.Component {
     state = {
         service: "sample", 
-        selectedInput: ''
+        selectedInput: '',
+        formInputs: [{name: "orders"}, {name: "depots"}, {name: "routes"}]
     };
 
     onRadioChange = (e) => {
@@ -20,8 +21,13 @@ class App extends React.Component {
 
     //adding a new input to the form
     onInputSelect = (e) => {
-        this.setState({selectedInput: e.target.id}, () => {
+        this.setState({
+            selectedInput: e.target.id,
+            formInputs: this.state.formInputs.concat([{name: e.target.id}])
+        }, 
+        () => {
             console.log(this.state.selectedInput);
+            console.log(this.state.formInputs);
         });
     }
     
@@ -47,7 +53,7 @@ class App extends React.Component {
                 <br />
                 <div className="ui three column grid">
                     <div className="column">
-                        <FormComponent />
+                        <FormComponent inputArr={this.state.formInputs}/>
                     </div>
                     <div className="column">
                         <div className="ui right close rail">

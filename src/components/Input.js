@@ -2,7 +2,8 @@ import React from 'react';
 
 const Input = (props) => {
     return (
-        <div id={props.id} 
+        <div 
+            id={props.id}
             className="ui teal inverted segment" 
             onClick={props.onClick}
             style={{cursor: 'pointer'}}

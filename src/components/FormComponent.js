@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import styled from 'styled-components';
 import './FormStyle.css';
 
-const FormComponent = () => {
+const FormComponent = (props) => {
     return (
         <div className="my-form" style={{paddingLeft: '30px'}}>
         <Formik
@@ -30,7 +30,7 @@ const FormComponent = () => {
             }}
         >
             <Form>
-                <label htmlFor="orders">Orders</label>
+                {/* <label htmlFor="orders">Orders</label>
                 <Field name="orders" as="textarea" className="form-input"/>
                 <ErrorMessage component={redError} name="orders"/>
                 <label htmlFor="depots">Depots</label>
@@ -38,7 +38,15 @@ const FormComponent = () => {
                 <ErrorMessage component={redError} name="depots" />
                 <label htmlFor="routes">Routes</label>
                 <Field name="routes" as="textarea" className="form-input" />
-                <ErrorMessage name="routes" component={redError} />
+                <ErrorMessage name="routes" component={redError} /> */}
+                
+                {props.inputArr.map((myinput, idx) => (
+                    <div key={`myinput + #${idx + 1}`}>
+                        <label htmlFor={myinput.name}>{myinput.name}</label>
+                        <Field name={myinput.name} as="textarea" className="form-input" />
+                        {errorChecker(myinput.name)}
+                    </div>
+                ))}
                 <br />
                 <button type="submit">Submit</button>
             </Form>
@@ -50,6 +58,16 @@ const FormComponent = () => {
 const redError = styled.p`
     color: #D12B27
 `;
+
+
+
+const errorChecker = (inputName) => {
+    if(inputName === "orders" || inputName === "routes" || inputName === "depots"){
+        return (
+            <ErrorMessage name={inputName} component={redError} />
+        );
+    }
+}
 
 // const FormComponent = () => {
 //     return (
