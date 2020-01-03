@@ -4,8 +4,9 @@ import Input from './Input';
 const InputList = (props) => {
     return (
         <div>
-            <Input id="breaks" onClick={props.onClick}/>
-            <Input id="travel_mode" onClick={props.onClick} />
+            <Input name="breaks" id="textarea" onClick={props.onClick}/>
+            <Input name="travel_mode" id="textarea" onClick={props.onClick} />
+            <Input name="time_units" id="select" onClick={props.onClick}/>
         </div>
     )
 }

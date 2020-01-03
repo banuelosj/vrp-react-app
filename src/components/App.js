@@ -8,7 +8,7 @@ class App extends React.Component {
     state = {
         service: "sample", 
         selectedInput: '',
-        formInputs: [{name: "orders"}, {name: "depots"}, {name: "routes"}]
+        formInputs: [{name:"orders", type:"textarea", checked: true}, {name:"depots", type:"textarea", checked: true}, {name:"routes", type:"textarea", checked: true}]
     };
 
     onRadioChange = (e) => {
@@ -22,8 +22,8 @@ class App extends React.Component {
     //adding a new input to the form
     onInputSelect = (e) => {
         this.setState({
-            selectedInput: e.target.id,
-            formInputs: this.state.formInputs.concat([{name: e.target.id}])
+            selectedInput: e.target.innerHTML,
+            formInputs: this.state.formInputs.concat([{name: e.target.innerHTML, type: e.target.id}])
         }, 
         () => {
             console.log(this.state.selectedInput);
