@@ -8,7 +8,11 @@ class App extends React.Component {
     state = {
         service: "sample", 
         selectedInput: '',
-        formInputs: [{name:"orders", type:"textarea", checked: true}, {name:"depots", type:"textarea", checked: true}, {name:"routes", type:"textarea", checked: true}]
+        formInputs: [
+            {name:"orders", type:"textarea"}, 
+            {name:"depots", type:"textarea"}, 
+            {name:"routes", type:"textarea"}
+        ]
     };
 
     onRadioChange = (e) => {

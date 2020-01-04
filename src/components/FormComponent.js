@@ -1,9 +1,10 @@
 import React from 'react';
 //import TextAreaLarge from './TextAreaLarge';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 import './FormStyle.css';
+import InputField from './InputField';
 
 const FormComponent = (props) => {
     return (
@@ -43,7 +44,8 @@ const FormComponent = (props) => {
                 {props.inputArr.map((myinput, idx) => (
                     <div key={`myinput + #${idx + 1}`}>
                         <label htmlFor={myinput.name}>{myinput.name}</label>
-                        <Field name={myinput.name} as="textarea" className="form-input" />
+                        {/* <Field name={myinput.name} as="textarea" className="form-input" /> */}
+                        <InputField name={myinput.name} type={myinput.type} />
                         {errorChecker(myinput.name)}
                     </div>
                 ))}
