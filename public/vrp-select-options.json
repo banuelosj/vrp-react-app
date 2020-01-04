@@ -1,0 +1,13 @@
+{
+    "parameters":
+    [{
+        "param": "time_units",
+        "options": ["Minutes", "Seconds", "Hours", "Days"]
+    },{
+        "param": "distance_units",
+        "options": ["Miles", "Meters", "Kilometers", "Feet", "Yards", "NauticalMiles"]
+    },{
+        "param": "uturn_policy",
+        "options": ["Allowed", "Not Allowed", "Allowed only at Intersections and Dead Ends", "Allowed only at Dead Ends"]
+    }]
+}
