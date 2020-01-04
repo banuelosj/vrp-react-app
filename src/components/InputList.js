@@ -1,12 +1,12 @@
 import React from 'react';
-import Input from './Input';
+import InputCard from './InputCard';
 
 const InputList = (props) => {
     return (
         <div>
-            <Input name="breaks" id="textarea" onClick={props.onClick}/>
-            <Input name="travel_mode" id="textarea" onClick={props.onClick} />
-            <Input name="time_units" id="select" onClick={props.onClick}/>
+            <InputCard name="breaks" id="textarea" onClick={props.onClick}/>
+            <InputCard name="travel_mode" id="textarea" onClick={props.onClick} />
+            <InputCard name="time_units" id="select" onClick={props.onClick}/>
         </div>
     )
 }

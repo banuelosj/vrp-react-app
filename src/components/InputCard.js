@@ -1,6 +1,9 @@
+//This component represents the params the user chooses to 
+//add to the form as inputs
+
 import React from 'react';
 
-const Input = (props) => {
+const InputCard = (props) => {
     return (
         <div 
             name={props.name}
@@ -14,4 +17,4 @@ const Input = (props) => {
     );
 }
 
-export default Input;
+export default InputCard;
