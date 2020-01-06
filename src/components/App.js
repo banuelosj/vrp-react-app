@@ -3,17 +3,23 @@ import Menu from './Menu';
 import RadioButtons from './RadioButtons';
 import FormComponent from './FormComponent';
 import InputList from './InputList';
+import axios from 'axios';
 
 class App extends React.Component {
     state = {
         service: "sample", 
-        selectedInput: '',
         formInputs: [
             {name:"orders", type:"textarea"}, 
             {name:"depots", type:"textarea"}, 
             {name:"routes", type:"textarea"}
-        ]
+        ],
+        inputCards: [],
+        selectedCards: []
     };
+
+    componentDidMount() {
+        this.loadInputCards();
+    }
 
     onRadioChange = (e) => {
         this.setState({
@@ -24,14 +30,25 @@ class App extends React.Component {
     }
 
     //adding a new input to the form
-    onInputSelect = (e) => {
+    onInputSelect = (card) => {
+        //check to see if the input has already been clicked an added to the form
+        //if()
         this.setState({
-            selectedInput: e.target.innerHTML,
-            formInputs: this.state.formInputs.concat([{name: e.target.innerHTML, type: e.target.id}])
+            formInputs: this.state.formInputs.concat([{name: card.target.innerHTML, type: card.target.id}]),
+            selectedCards: this.state.selectedCards.concat([card])
         }, 
         () => {
-            console.log(this.state.selectedInput);
             console.log(this.state.formInputs);
+            console.log('selectedcards:', this.state.selectedCards);
+        });
+    }
+
+    //populate the InputCard list on the rail
+    loadInputCards = async() => {
+        const response = await axios.get(process.env.PUBLIC_URL + "./input-card-list-items.json");
+        this.setState({inputCards: response.data.items},
+        () => {
+            console.log("cards: ", this.state.inputCards);
         });
     }
     
@@ -61,7 +78,7 @@ class App extends React.Component {
                     </div>
                     <div className="column">
                         <div className="ui right close rail">
-                            <InputList onClick={this.onInputSelect} />
+                            <InputList onClick={this.onInputSelect} cards={this.state.inputCards} selectedCards={this.state.selectedCards}/>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,19 @@
+{
+    "items":
+    [{
+        "name": "breaks",
+        "type": "textarea"
+    },{
+        "name": "distance_units",
+        "type": "select"
+    },{
+        "name": "time_units",
+        "type": "select"
+    },{
+        "name": "travel_mode",
+        "type": "textarea"
+    },{
+        "name": "uturn_policy",
+        "type": "select"
+    }]
+}

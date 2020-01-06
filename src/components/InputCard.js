@@ -5,7 +5,7 @@ import React from 'react';
 
 const InputCard = (props) => {
     return (
-        <div 
+        <div onClick={()=> props.onClick(props.card)}
             name={props.name}
             id={props.id}
             className="ui teal inverted segment" 
