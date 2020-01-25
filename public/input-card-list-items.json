@@ -1,13 +1,34 @@
 {
     "items":
     [{
+        "name": "analysis_region",
+        "type": "select"
+    },{
         "name": "breaks",
         "type": "textarea"
+    },{
+        "name": "default_date",
+        "type": "select"
     },{
         "name": "distance_units",
         "type": "select"
     },{
+        "name": "impedance",
+        "type": "input"
+    },{
+        "name": "route_zones",
+        "type": "textarea"
+    },{
+        "name": "spatially_cluster_routes",
+        "type": "select"
+    },{
         "name": "time_units",
+        "type": "select"
+    },{
+        "name": "time_window_factor",
+        "type": "select"
+    },{
+        "name": "time_zone_usage_for_time_fields",
         "type": "select"
     },{
         "name": "travel_mode",
