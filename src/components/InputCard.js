@@ -8,7 +8,7 @@ const InputCard = (props) => {
         <div onClick={()=> props.onClick(props.card)}
             name={props.name}
             id={props.id}
-             className="ui teal inverted segment" 
+            className="ui teal inverted segment" 
             onClick={props.onClick}
             style={{cursor: 'pointer'}}
         >
