@@ -31,15 +31,16 @@ class App extends React.Component {
 
     //adding a new input to the form
     onInputSelect = (card) => {
-        //check to see if the input has already been clicked an added to the form
-        //if()
+        //change card color based off selection
+        card.target.className = this.cardColorChange(card.target.className);
+
         this.setState({
             formInputs: this.state.formInputs.concat([{name: card.target.innerHTML, type: card.target.id}]),
             selectedCards: this.state.selectedCards.concat([card])
         }, 
         () => {
-            console.log(this.state.formInputs);
-            console.log('selectedcards:', this.state.selectedCards);
+           // console.log(this.state.formInputs);
+            //console.log('selectedcards:', this.state.selectedCards);
         });
     }
 
@@ -48,9 +49,22 @@ class App extends React.Component {
         const response = await axios.get(process.env.PUBLIC_URL + "./input-card-list-items.json");
         this.setState({inputCards: response.data.items},
         () => {
-            console.log("cards: ", this.state.inputCards);
+            console.log("loaded the cards successfully!");
         });
     }
+
+    //change the card color based off knowing if the card has been selected or not
+    //this is found by using the className value
+    cardColorChange = (className) => {
+        //if it is selected for the first time, gray it out, otherwise it has already been selected
+        //so change the color back to unselected
+        if(className === "ui teal inverted segment"){
+            return "ui grey inverted segment";
+        } else {
+            return "ui teal inverted segment"
+        }
+    }
+
     
     render() {
         return (
