@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from './Menu';
 import RadioButtons from './RadioButtons';
+import Toggler from './Toggler';
 import FormComponent from './FormComponent';
 import InputList from './InputList';
 import axios from 'axios';
@@ -93,10 +94,11 @@ class App extends React.Component {
                             </h1>
                         </div>
                     </div>
-                    <RadioButtons 
+                    {/* <RadioButtons 
                         service={this.state.service} 
                         onChange={this.onRadioChange} 
-                    />
+                    /> */}
+                    <Toggler />
                 </div>
                 <br />
                 <div className="ui three column grid">
