@@ -8,8 +8,6 @@ const InputField = (props) => {
 
 
     switch(type) {
-        case 'input':
-            return <Field name={name} />;
         case 'textarea':
             return <Field name={name} as={type} className="form-input" />;
         case 'select':

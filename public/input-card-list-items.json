@@ -14,7 +14,7 @@
         "type": "select"
     },{
         "name": "impedance",
-        "type": "input"
+        "type": "textarea"
     },{
         "name": "route_zones",
         "type": "textarea"

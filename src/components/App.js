@@ -34,14 +34,15 @@ class App extends React.Component {
         //change card color based off selection
         card.target.className = this.cardColorChange(card.target.className);
 
-        this.setState({
-            formInputs: this.state.formInputs.concat([{name: card.target.innerHTML, type: card.target.id}]),
-            selectedCards: this.state.selectedCards.concat([card])
-        }, 
-        () => {
-           // console.log(this.state.formInputs);
-            //console.log('selectedcards:', this.state.selectedCards);
-        });
+        //check if the card has already been selected
+        //if yes, then remove it from the formInputs
+        const isCardAlreadySelected = this.cardSelectionChecker(card.target.innerText, this.state.formInputs);
+        if(!isCardAlreadySelected) {
+            this.setState({
+                formInputs: this.state.formInputs.concat([{name: card.target.innerHTML, type: card.target.id}]),
+                selectedCards: this.state.selectedCards.concat([card.target])
+            });
+        }
     }
 
     //populate the InputCard list on the rail
@@ -63,6 +64,18 @@ class App extends React.Component {
         } else {
             return "ui teal inverted segment"
         }
+    }
+
+    //checks to see if the card already exists in the formInputs array
+    //if it does, then we remove it, otherwise we add it
+    //adding and removing gets taken care of in the onInputSelect
+    cardSelectionChecker = (name, formInputs) => {
+        for(let input of formInputs){
+            if(input.name === name) {
+                return true;
+            }
+        }
+        return false;
     }
 
     
